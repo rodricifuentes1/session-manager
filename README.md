@@ -16,7 +16,7 @@ val sessionManager = new SessionManager()
 * Use the instance
 ```scala
 
-case class MySessionData( userId: String, userPicture: String )
+case class MySessionData( userId: String, userPicture: String ) extends SessionData
 
 // Creates a new session
 val create: Future[ CreateActionResponse ] = sessionManager.createSession( "session-id", update = false, MySessionData( "1", "http://userPicture.myapp.com" )
