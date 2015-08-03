@@ -8,6 +8,7 @@ import com.typesafe.config.{ ConfigFactory, Config }
 
 import scala.concurrent.duration._
 import scala.concurrent.{ ExecutionContext, Future }
+import scala.concurrent.ExecutionContext.Implicits
 
 /**
  * Trait that provides actorSystem context
@@ -40,13 +41,9 @@ sealed trait ActorFactory { this: SystemContext =>
  * @param config Application configuration resource
  */
 class SessionManager()( implicit val system: ActorSystem = ActorSystem( "session-actor-system" ),
+  context: ExecutionContext = Implicits.global,
   config: Config = ConfigFactory.load ) extends SystemContext
     with ActorFactory {
-
-  /**
-   * Execution context for future manipulation
-   */
-  private[ this ] implicit val executionContext: ExecutionContext = system.dispatcher
 
   /**
    * Creates a new session
