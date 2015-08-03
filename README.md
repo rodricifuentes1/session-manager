@@ -6,9 +6,13 @@
 // If actor system is not provided, a new one is created automatically
 implicit val system: ActorSystem = ActorSystem("my-actor-system")
 
+// Your application execution context
+// If execution context is not provided, it wil take scala.concurrent.ExecutionContext.Implicits.global by default
+implicit val context: ExecutionContext = myExecutionContext
+
 // Your application configuration (typesafe)
-// If configuration is not provided, default configuration is loader automatically using ConfigFactory.load
-implicit val config: Config = ConfigFactory.load()
+// If configuration is not provided, default configuration is loaded automatically using ConfigFactory.load()
+implicit val config: Config = ConfigFactory.load("my-conf")
 
 // Session manager UNIQUE instance
 val sessionManager = new SessionManager()
