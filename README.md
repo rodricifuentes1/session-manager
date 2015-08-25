@@ -56,3 +56,4 @@ close.map {
 }
 
 ```
+## Test code coverage - 100%
