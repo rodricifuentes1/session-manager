@@ -16,7 +16,7 @@ object Version {
 	val akkaVersion: String = "2.3.12"
 
 	// TESTING LIBRARIES
-	val specs2Version: String = "3.6.2"
+	val specs2Version: String = "3.6.4"
 
 	// LOGGING LIBRARIES
 	val logbackVersion: String = "1.1.3"
