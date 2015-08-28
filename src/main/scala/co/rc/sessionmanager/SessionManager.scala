@@ -53,7 +53,7 @@ class SessionManager()( implicit val system: ActorSystem = ActorSystem( "session
    */
   def createSession( id: String,
     update: Boolean,
-    data: SessionData,
+    data: SessionData = EmptyData,
     expirationTimeValue: Int = config.getInt( "co.rc.sessionmanager.exptime-value" ),
     expirationTimeUnit: String = config.getString( "co.rc.sessionmanager.exptime-unit" ) )( implicit timeout: Timeout = Timeout( config.getInt( "co.rc.sessionmanager.ask-timeout" ).seconds ) ): Future[ SessionRouter.CreateActionResponse ] = {
 

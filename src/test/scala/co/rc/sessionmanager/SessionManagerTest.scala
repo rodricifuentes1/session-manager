@@ -21,13 +21,23 @@ class SessionManagerTest extends Specification {
     // Create session tests
     // ------------------------------------------------
 
-    "Create Session: Create a new session" in new AkkaSpecs2Support {
+    "Create Session: Create a new session with empty data" in new AkkaSpecs2Support {
       within( 20 seconds ) {
         val sessionManager: SessionManager = new SessionManager()
-        val creationFuture: Future[ SessionRouter.CreateActionResponse ] = sessionManager.createSession( "SM:CS:new-session", update = false, TestData( 1 ) )
+        val creationFuture: Future[ SessionRouter.CreateActionResponse ] = sessionManager.createSession( "SM:CS:new-session-ed", update = false )
         val creationResult: SessionRouter.CreateActionResponse = Await.result( creationFuture, 5.seconds )
         creationResult must beAnInstanceOf[ SessionRouter.SessionCreated ]
-        creationResult.asInstanceOf[ SessionRouter.SessionCreated ].sessionId must_== "SM:CS:new-session"
+        creationResult.asInstanceOf[ SessionRouter.SessionCreated ].sessionId must_== "SM:CS:new-session-ed"
+      }
+    }
+
+    "Create Session: Create a new session with custom data" in new AkkaSpecs2Support {
+      within( 20 seconds ) {
+        val sessionManager: SessionManager = new SessionManager()
+        val creationFuture: Future[ SessionRouter.CreateActionResponse ] = sessionManager.createSession( "SM:CS:new-session-cd", update = false, TestData( 1 ) )
+        val creationResult: SessionRouter.CreateActionResponse = Await.result( creationFuture, 5.seconds )
+        creationResult must beAnInstanceOf[ SessionRouter.SessionCreated ]
+        creationResult.asInstanceOf[ SessionRouter.SessionCreated ].sessionId must_== "SM:CS:new-session-cd"
       }
     }
 
