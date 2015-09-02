@@ -1,10 +1,13 @@
 # Agnostic session manager based on Akka
-## Usage
-* Adding the dependency
+## Adding the dependency
+* Modify your `build.sbt` file
 ```
   resolvers += Resolver.bintrayRepo("rodricifuentes1", "RC-releases")
   libraryDependencies += "co.rc" %% "session-manager" % "1.0"
 ```
+* You can also download the compiled `jar file` here [ ![Download](https://api.bintray.com/packages/rodricifuentes1/RC-releases/session-manager/images/download.svg) ](https://bintray.com/rodricifuentes1/RC-releases/session-manager/_latestVersion)
+
+## Usage
 * Provide basic configuration in your `application.conf` file
 ```scala 
   co.rc.sessionmanager.exptime-value = 10 // Integer value only
