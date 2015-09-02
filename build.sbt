@@ -10,6 +10,8 @@ resolvers ++= Resolvers.all
 
 libraryDependencies ++= Dependencies.all
 
+licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
+
 scalacOptions ++= Seq(
   "-deprecation",
   "-encoding", "UTF-8",
