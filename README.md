@@ -1,5 +1,10 @@
 # Agnostic session manager based on Akka
 ## Usage
+* Adding the dependency
+```
+  resolvers += Resolver.bintrayRepo("rodricifuentes1", "RC-releases")
+  libraryDependencies += "co.rc" %% "session-manager" % "1.0"
+```
 * Provide basic configuration in your `application.conf` file
 ```scala 
   co.rc.sessionmanager.exptime-value = 10 // Integer value only
