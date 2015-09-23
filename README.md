@@ -10,11 +10,11 @@
 ## Usage
 * Provide basic configuration in your `application.conf` file
 ```scala 
-  co.rc.sessionmanager.exptime-value = 10 // Integer value only
+  co.rc.sessionmanager.exptime-value = 10 // Integer values only
   co.rc.sessionmanager.exptime-unit = "minutes" // ALLOWED VALUES: seconds, minutes, hours, days
   co.rc.sessionmanager.ask-timeout = 5 // This time is in seconds
 ```
-* Create an UNIQUE instance of class `SessionManager`
+* Create a UNIQUE instance of class `SessionManager`
 ```scala
 // Your application actor system
 // If actor system is not provided, a new one is created automatically
